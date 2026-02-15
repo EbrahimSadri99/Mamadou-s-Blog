@@ -391,7 +391,7 @@ function removeInlineStyles(htmlString) {
     }
 
     // Split long sequences of underscores (>50) by adding a space
-    el.innerHTML = el.innerHTML.replace(/_{51,}/g, match => {
+    el.innerHTML = el.innerHTML.replace(/_{6,}/g, match => {
       return match.replace(/(.{50})/g, "$1 ");
     });
   });
@@ -477,7 +477,7 @@ useHead(() => ({
 
     /* slightly larger for readability */
     font-size: var(--text-3xl) /* 1.25rem = 20px */ !important;
-    line-height: var(--tw-leading, var(--text-2xl--line-height) /* calc(1.75 / 1.25) ≈ 1.4 */) !important;
+    line-height: var(--tw-leading, var(--text-3xl--line-height) /* calc(1.75 / 1.25) ≈ 1.4 */) !important;
     --tw-leading: var(--leading-loose) /* 2 */ !important;
     line-height: var(--leading-loose) /* 2 */ !important;
     font-family: var(--font-amiri);
@@ -498,5 +498,13 @@ useHead(() => ({
   float: right;
   font-size: var(--text-3xl);
   word-break: normal !important;
+  line-height: var(--tw-leading, var(--text-3xl--line-height) /* calc(1.75 / 1.25) ≈ 1.4 */) !important;
 }
+
+img {
+  width: 80vw !important;
+  margin: auto !important;
+  object-fit: contain !important;
+}
+
 </style>
