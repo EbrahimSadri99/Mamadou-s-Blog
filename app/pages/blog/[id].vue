@@ -392,7 +392,7 @@ function removeInlineStyles(htmlString) {
 
     // Split long sequences of underscores (>50) by adding a space
     el.innerHTML = el.innerHTML.replace(/_{6,}/g, match => {
-      return match.replace(/(.{50})/g, "$1 ");
+      return match.replace(/(.{6})/g, "$1 ");
     });
   });
 
@@ -504,7 +504,7 @@ useHead(() => ({
 img {
   width: 80vw !important;
   margin: auto !important;
-  object-fit: contain !important;
+  object-fit: cover !important;
 }
 
 </style>
