@@ -1,0 +1,388 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "daisyui";
+
+
+@theme {
+  /* Custom color palette */
+  --color-emerald-950: #022c22;
+
+  /* Font families */
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-serif: ui-serif, Georgia, serif;
+  --font-amiri: "Amiri", "Scheherazade New", ui-serif, Georgia, serif;
+  --font-cormorant: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-lora: "Lora", ui-serif, Georgia, serif;
+
+  /* Custom animations */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-rotate-slow: rotate-slow 20s linear infinite;
+  --animate-pulse-slow: pulse-slow 4s ease-in-out infinite;
+  --animate-fade-in: fadeIn 0.8s ease-out;
+}
+
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-lora);
+}
+
+/* Font utility classes */
+.font-amiri {
+  font-family: var(--font-amiri);
+}
+
+.font-cormorant {
+  font-family: var(--font-cormorant);
+}
+
+.font-lora {
+  font-family: var(--font-lora);
+}
+
+/* Arabic text styling */
+[dir="rtl"],
+[lang="ar"],
+.arabic-text {
+  font-family: var(--font-amiri);
+  direction: rtl;
+  text-align: right;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: var(--animate-float);
+}
+
+.animate-rotate-slow {
+  animation: var(--animate-rotate-slow);
+}
+
+.animate-pulse-slow {
+  animation: var(--animate-pulse-slow);
+}
+
+.animate-fade-in {
+  animation: var(--animate-fade-in);
+}
+
+/* Islamic Geometric Patterns */
+.pattern-islamic-geometry {
+  background-image: linear-gradient(45deg, currentColor 2px, transparent 2px),
+    linear-gradient(-45deg, currentColor 2px, transparent 2px),
+    linear-gradient(
+      45deg,
+      transparent 10px,
+      currentColor 10px,
+      currentColor 12px,
+      transparent 12px
+    ),
+    linear-gradient(
+      -45deg,
+      transparent 10px,
+      currentColor 10px,
+      currentColor 12px,
+      transparent 12px
+    );
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+}
+
+.pattern-islamic-star {
+  background-image: linear-gradient(60deg, currentColor 1px, transparent 1px),
+    linear-gradient(120deg, currentColor 1px, transparent 1px),
+    linear-gradient(180deg, currentColor 1px, transparent 1px),
+    linear-gradient(240deg, currentColor 1px, transparent 1px),
+    linear-gradient(300deg, currentColor 1px, transparent 1px),
+    linear-gradient(360deg, currentColor 1px, transparent 1px);
+  background-size: 30px 52px;
+  background-position: 0 0;
+}
+
+.pattern-dots {
+  background-image: radial-gradient(
+    circle,
+    currentColor 1.5px,
+    transparent 1.5px
+  );
+  background-size: 24px 24px;
+}
+
+.pattern-grid {
+  background-image: linear-gradient(currentColor 1px, transparent 1px),
+    linear-gradient(90deg, currentColor 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.pattern-diagonal-lines {
+  background-image: repeating-linear-gradient(
+    45deg,
+    currentColor,
+    currentColor 1px,
+    transparent 1px,
+    transparent 12px
+  );
+}
+
+.pattern-hexagon {
+  background-image: linear-gradient(
+      60deg,
+      currentColor 25%,
+      transparent 25.5%,
+      transparent 75%,
+      currentColor 75%
+    ),
+    linear-gradient(
+      120deg,
+      currentColor 25%,
+      transparent 25.5%,
+      transparent 75%,
+      currentColor 75%
+    );
+  background-size: 40px 70px;
+  background-position: 0 0, 20px 35px;
+}
+
+.pattern-moroccan {
+  background-image: radial-gradient(
+      circle at 50% 50%,
+      currentColor 2%,
+      transparent 2%
+    ),
+    radial-gradient(circle at 0% 50%, currentColor 2%, transparent 2%),
+    radial-gradient(circle at 100% 50%, currentColor 2%, transparent 2%),
+    radial-gradient(circle at 50% 0%, currentColor 2%, transparent 2%),
+    radial-gradient(circle at 50% 100%, currentColor 2%, transparent 2%);
+  background-size: 50px 50px;
+  background-position: 0 0, 0 0, 50px 0, 0 0, 0 50px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f5f9;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background-color: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #10b981, #14b8a6);
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #059669, #0d9488);
+  background-clip: padding-box;
+}
+
+/* Selection colors */
+::selection {
+  background-color: #10b981;
+  color: white;
+}
+
+.dark ::selection {
+  background-color: #34d399;
+  color: #022c22;
+}
+
+/* Focus styles */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    color: black;
+    background-color: white;
+  }
+
+  a {
+    color: #10b981;
+    text-decoration: underline;
+  }
+
+  .pattern-islamic-geometry,
+  .pattern-islamic-star,
+  .pattern-dots,
+  .pattern-grid {
+    background: none !important;
+  }
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+}
+
+/* Backdrop blur support */
+@supports (backdrop-filter: blur(10px)) {
+  .backdrop-blur-xl {
+    backdrop-filter: blur(24px);
+  }
+
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+  }
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(to right, #10b981, #14b8a6, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.1),
+    0 10px 10px -5px rgba(16, 185, 129, 0.04);
+}
+
+/* Text shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, #10b981 0%, #34d399 50%, #10b981 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Loading states */
+.skeleton {
+  background: linear-gradient(90deg, #f1f5f9 0%, #e2e8f0 50%, #f1f5f9 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.dark .skeleton {
+  background: linear-gradient(90deg, #1e293b 0%, #334155 50%, #1e293b 100%);
+  background-size: 200% 100%;
+}
+
+/* Accessibility improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
