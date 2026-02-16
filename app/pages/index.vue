@@ -55,7 +55,7 @@
                     <h1 class="font-cormorant text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
                         <span
                             class="bg-linear-to-r from-emerald-700 via-teal-600 to-cyan-700 dark:from-emerald-400 dark:via-teal-400 dark:to-cyan-400 bg-clip-text text-transparent">
-                            Mamadou Dialo</span>'s
+                            Mamadou Diallo</span>'s
                         <br>
                         <span class="text-slate-800 dark:text-slate-200">
                             Reflections
@@ -114,7 +114,7 @@
                 </h2>
 
                 <p class="font-lora text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-                    Read all of Mamadou Dialo's latest posts.
+                    Read all of Mamadou Diallo's latest posts.
                 </p>
             </div>
 
@@ -136,8 +136,8 @@
                         <div class="relative p-8 space-y-4">
                             <!-- Title -->
                             <h3
-                                class="font-cormorant text-2xl md:text-3xl font-bold text-slate-800 dark:text-slate-200 leading-tight group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
-                                {{ post.title }}
+                                class="font-cormorant text-2xl font-bold text-slate-800 dark:text-slate-200 leading-tight group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
+                                {{ truncateTitle(post.title) }}
                             </h3>
 
                             <!-- Metadata -->
@@ -270,6 +270,13 @@ const parseTags = (tagString) => {
     } catch {
         return []
     }
+}
+
+const truncateTitle = (title) => {
+  if (!title) return ''
+  return title.length > 120
+    ? title.slice(0, 100) + '...'
+    : title
 }
 
 function openExternal() {

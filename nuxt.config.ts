@@ -2,7 +2,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
-  devtools: { enabled: true },
   modules: [
     ['@nuxtjs/google-fonts', {
       families: {
@@ -25,7 +24,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Mamadou Dialo\'s Blog',
+      title: 'Mamadou Diallo\'s Blog',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -35,7 +34,7 @@ export default defineNuxtConfig({
         },
         { name: 'keywords', content: 'A personal Islamic blog reflecting on Quran and Hadith' },
         { property: 'og:type', content: 'website' },
-        { property: 'og:title', content: 'Mamadou Dialo\'s Blog' },
+        { property: 'og:title', content: 'Mamadou Diallo\'s Blog' },
         { property: 'og:description', content: 'A personal Islamic blog reflecting on Quran and Hadith' },
       ],
       htmlAttrs: {
