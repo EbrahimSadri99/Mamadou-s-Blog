@@ -284,7 +284,7 @@ function removeInlineStyles(htmlString) {
   // Elements allowed to keep inline styles
   const allowed = new Set([
     "TABLE", "THEAD", "TBODY", "TFOOT",
-    "TR", "TD", "TH", "IMG"
+    "TR", "TD", "TH",
   ]);
 
   // Regex to detect Arabic characters
@@ -383,7 +383,27 @@ const loadPost = async () => {
   } finally {
     isLoading.value = false
   }
+
+  await nextTick()
+  applyImageStyles()
+
 }
+
+const applyImageStyles = () => {
+  document.querySelectorAll('.blog-content img').forEach(img => {
+    img.style.setProperty('width', '100%', 'important');
+    img.style.setProperty('max-width', '100%', 'important');
+    img.style.setProperty('height', 'auto', 'important');
+    img.style.setProperty('display', 'block', 'important');
+    img.style.setProperty('margin', '1.5rem auto', 'important');
+    img.style.setProperty('object-fit', 'contain', 'important');
+    img.style.setProperty('background-color', '#f8fafc', 'important');
+    img.style.setProperty('border-radius', '0.5rem', 'important');
+    img.style.setProperty('padding', '1.5rem', 'important');
+    img.style.setProperty('color-scheme', 'light', 'important');
+  });
+};
+
 
 onMounted(async () => {
   await loadPost()
@@ -453,8 +473,14 @@ useHead(() => ({
 }
 
 img {
-  width: 80vw !important;
-  margin: auto !important;
-  object-fit: cover !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 1.5rem auto !important;
+  object-fit: contain !important;
+  background-color: #f8fafc !important;
+  border-radius: 0.5rem !important;
+  color-scheme: light !important;
 }
 </style>
